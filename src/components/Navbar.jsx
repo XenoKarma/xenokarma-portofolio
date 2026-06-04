@@ -42,9 +42,9 @@ export default function Navbar() {
   return (
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2.5rem)] max-w-3xl">
       <div className="relative">
-        <div className="absolute -inset-1 bg-gradient-to-r from-violet-500/20 via-fuchsia-500/10 to-violet-500/20 rounded-full blur-lg opacity-60" />
+        <div className="absolute -inset-1 bg-linear-to-r from-violet-500/20 via-fuchsia-500/10 to-violet-500/20 rounded-full blur-lg opacity-60" />
 
-        <div className="relative flex items-center justify-between bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-full px-5 md:px-8 h-14 transition-colors">
+        <div className="relative flex items-center justify-between bg-white/4 backdrop-blur-xl border border-white/8 rounded-full px-5 md:px-8 h-14 transition-colors">
           <a href="#home" onClick={(e) => handleClick(e, '#home')} className="text-base font-semibold text-white tracking-tight">
             XENO<span className="text-cyan-400">KARMA</span>
           </a>
@@ -67,12 +67,12 @@ export default function Navbar() {
                     {l.label}
                   </span>
 
-                  <span className="absolute bottom-1 left-4 right-4 h-px scale-x-0 group-hover:scale-x-100 transition-transform duration-300 bg-gradient-to-r from-violet-400/80 to-fuchsia-400/80 rounded-full" />
+                  <span className="absolute bottom-1 left-4 right-4 h-px scale-x-0 group-hover:scale-x-100 transition-transform duration-300 bg-linear-to-r from-violet-400/80 to-fuchsia-400/80 rounded-full" />
 
                   {isActive && (
                     <motion.div
                       layoutId="nav-active"
-                      className="absolute inset-0 bg-white/[0.06] rounded-full border border-white/[0.06]"
+                      className="absolute inset-0 bg-white/6 rounded-full border border-white/6"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -109,7 +109,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden mt-2 bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-3"
+            className="md:hidden mt-2 bg-white/4 backdrop-blur-xl border border-white/8 rounded-2xl p-3"
           >
             {links.map(l => {
               const isActive = active === l.href.slice(1)
@@ -120,8 +120,8 @@ export default function Navbar() {
                   onClick={(e) => handleClick(e, l.href)}
                   className={`block px-4 py-2.5 text-sm rounded-xl transition-all duration-300 ${
                     isActive
-                      ? 'text-white bg-white/[0.06]'
-                      : 'text-zinc-500 hover:text-violet-300 hover:bg-white/[0.03]'
+                      ? 'text-white bg-white/6'
+                      : 'text-zinc-500 hover:text-violet-300 hover:bg-white/3'
                   }`}
                 >
                   {l.label}

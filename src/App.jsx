@@ -10,6 +10,7 @@ import Certificate from './components/Certificate'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import LiquidEther from './components/LiquidEther'
+import GithubActivity from './components/GithubActivity'
 
 function LoadingScreen({ onComplete }) {
   const count = useMotionValue(0)
@@ -88,6 +89,7 @@ function App() {
           <Experience />
           <Project />
           <Certificate />
+          <GithubActivity />
           <Contact />
           <Footer />
         </main>

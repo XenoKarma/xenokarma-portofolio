@@ -60,7 +60,7 @@ function CertificateCard({ cert, index }) {
       transition={{ delay: index * 0.1, duration: 0.5 }}
     >
       <div className="group bg-white/4 border border-white/8 rounded-2xl overflow-hidden hover:border-violet-500/30 transition-all duration-300">
-        <div className="relative aspect-[3/2] overflow-hidden bg-linear-to-br from-violet-500/10 via-fuchsia-500/10 to-cyan-500/10">
+        <div className="relative aspect-3/2 overflow-hidden bg-linear-to-br from-violet-500/10 via-fuchsia-500/10 to-cyan-500/10">
           {cert.image ? (
             <img
               src={cert.image}

@@ -64,10 +64,10 @@ function ProjectCard({ project, index, isFrontend }) {
     >
       <CardWrapper
         {...wrapperProps}
-        className={`group block bg-white/[0.04] border border-white/[0.08] rounded-2xl overflow-hidden hover:border-violet-500/30 transition-all duration-300 ${isFrontend && project.link ? 'cursor-pointer hover:-translate-y-1' : ''}`}
+        className={`group block bg-white/4 border border-white/8 rounded-2xl overflow-hidden hover:border-violet-500/30 transition-all duration-300 ${isFrontend && project.link ? 'cursor-pointer hover:-translate-y-1' : ''}`}
       >
         {/* Image */}
-        <div className="aspect-video bg-gradient-to-br from-violet-500/10 via-fuchsia-500/10 to-cyan-500/10 flex items-center justify-center overflow-hidden">
+        <div className="aspect-video bg-linear-to-br from-violet-500/10 via-fuchsia-500/10 to-cyan-500/10 flex items-center justify-center overflow-hidden">
           {project.image ? (
             <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
           ) : (
@@ -95,7 +95,7 @@ function ProjectCard({ project, index, isFrontend }) {
           <p className="mt-2 text-xs text-zinc-500 leading-relaxed">{project.desc}</p>
           <div className="mt-4 flex flex-wrap gap-1.5">
             {project.tech.map(t => (
-              <span key={t} className="px-2 py-0.5 bg-white/[0.05] border border-white/[0.08] rounded-md text-[10px] text-zinc-400">
+              <span key={t} className="px-2 py-0.5 bg-white/5 border border-white/8 rounded-md text-[10px] text-zinc-400">
                 {t}
               </span>
             ))}
@@ -129,7 +129,7 @@ export default function Project() {
           <div className="flex items-center gap-3 mb-6">
             <div className="w-2 h-2 rounded-full bg-cyan-400" />
             <h3 className="text-sm font-semibold text-zinc-300 tracking-wider uppercase">Frontend</h3>
-            <div className="h-px flex-1 bg-gradient-to-r from-white/[0.08] to-transparent" />
+            <div className="h-px flex-1 bg-linear-to-r from-white/8 to-transparent" />
           </div>
           <div className="grid md:grid-cols-3 gap-4 md:gap-6">
             {projects.frontend.map((project, i) => (
@@ -143,7 +143,7 @@ export default function Project() {
           <div className="flex items-center gap-3 mb-6">
             <div className="w-2 h-2 rounded-full bg-violet-400" />
             <h3 className="text-sm font-semibold text-zinc-300 tracking-wider uppercase">Fullstack</h3>
-            <div className="h-px flex-1 bg-gradient-to-r from-white/[0.08] to-transparent" />
+            <div className="h-px flex-1 bg-linear-to-r from-white/8 to-transparent" />
           </div>
           <div className="grid md:grid-cols-3 gap-4 md:gap-6">
             {projects.fullstack.map((project, i) => (

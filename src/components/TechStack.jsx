@@ -12,44 +12,56 @@ import githubIcon from '../assets/icon/github.jpg'
 import vscodeIcon from '../assets/icon/vscode.jpg'
 import antigravityIcon from '../assets/icon/antigravity.jpg'
 import opencodeIcon from '../assets/icon/opencode.png'
+import ReactBitsIcon from '../assets/icon/reactbits.png'
+import openAiIcon from '../assets/icon/openai.jpg'
+import htmlIcon from '../assets/icon/html.png'
+import cssIcon from '../assets/icon/css.png'
 
 const iconMap = {
   React: reactIcon,
   TypeScript: tsIcon,
-  'Tailwind CSS': tailwindIcon,
-  'Shadcn UI': shadcnIcon,
+  TailwindCSS: tailwindIcon,
+  ShadcnUI: shadcnIcon,
   Laravel: laravelIcon,
   PHP: phpIcon,
   JavaScript: jsIcon,
   MySQL: mysqlIcon,
   Git: gitIcon,
   GitHub: githubIcon,
-  'VS Code': vscodeIcon,
+  VSCode: vscodeIcon,
   Antigravity: antigravityIcon,
   OpenCode: opencodeIcon,
+  ReactBits: ReactBitsIcon,
+  OpenAI: openAiIcon,
+  HTML: htmlIcon,
+  CSS: cssIcon,
 }
 
 const techItems = [
   { name: 'React', color: '#61DAFB' },
   { name: 'TypeScript', color: '#3178C6' },
-  { name: 'Tailwind CSS', color: '#06B6D4' },
-  { name: 'Shadcn UI', color: '#FFFFFF' },
+  { name: 'TailwindCSS', color: '#06B6D4' },
+  { name: 'ShadcnUI', color: '#FFFFFF' },
   { name: 'Laravel', color: '#FF2D20' },
   { name: 'PHP', color: '#777BB4' },
   { name: 'JavaScript', color: '#F7DF1E' },
   { name: 'MySQL', color: '#4479A1' },
   { name: 'Git', color: '#F05032' },
   { name: 'GitHub', color: '#FFFFFF' },
-  { name: 'VS Code', color: '#007ACC' },
+  { name: 'VSCode', color: '#007ACC' },
   { name: 'Antigravity', color: '#A855F7' },
   { name: 'OpenCode', color: '#22D3EE' },
+  { name: 'ReactBits', color: '#d303fc' },
+  { name: 'OpenAI', color: '#10A37F' },
+  { name: 'HTML', color: '#E34F26' },
+  { name: 'CSS', color: '#1572B6' },
 ]
 
 function TechCard({ name, color }) {
   const icon = iconMap[name]
 
   return (
-    <div className="group flex items-center gap-3 px-5 py-3 rounded-xl border border-white/[0.06] bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/[0.12] transition-all duration-300 shrink-0">
+    <div className="group flex items-center gap-3 px-5 py-3 rounded-xl border border-white/6 bg-white/3 hover:bg-white/8 hover:border-white/12 transition-all duration-300 shrink-0">
       {icon ? (
         <img
           src={icon}
@@ -69,7 +81,7 @@ function TechCard({ name, color }) {
   )
 }
 
-function MarqueeRow({ items, direction = 'left', speed = 30 }) {
+function MarqueeRow({ items, direction = 'left'}) {
   const duplicated = [...items, ...items]
 
   return (
@@ -80,8 +92,9 @@ function MarqueeRow({ items, direction = 'left', speed = 30 }) {
           x: direction === 'left' ? [0, -50 * items.length] : [-50 * items.length, 0],
         }}
         transition={{
-          duration: items.length * speed / 10,
+          duration: 22,
           repeat: Infinity,
+          repeatType: 'loop',
           ease: 'linear',
         }}
       >
@@ -109,8 +122,8 @@ export default function TechStack() {
         </div>
 
         <div className="space-y-6">
-          <MarqueeRow items={techItems} direction="left" speed={35} />
-          <MarqueeRow items={[...techItems].reverse()} direction="right" speed={35} />
+          <MarqueeRow items={techItems} direction="left" />
+          <MarqueeRow items={[...techItems].reverse()} direction="right"/>
         </div>
       </div>
 

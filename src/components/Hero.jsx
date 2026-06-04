@@ -157,7 +157,7 @@ export default function Hero() {
               md:text-xl
               text-zinc-300
               max-w-xl
-              min-h-[40px]
+              min-h-10
             "
           >
             <TextType
@@ -270,7 +270,7 @@ export default function Hero() {
               "
             >
               <span className="relative z-10">Scroll Down</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-cyan-300 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="absolute inset-0 bg-linear-to-r from-cyan-300 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
 
             <a

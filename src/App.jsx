@@ -6,6 +6,7 @@ import About from './components/About'
 import TechStack from './components/TechStack'
 import Experience from './components/Experience'
 import Project from './components/Project'
+import Certificate from './components/Certificate'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import LiquidEther from './components/LiquidEther'
@@ -86,6 +87,7 @@ function App() {
           <TechStack />
           <Experience />
           <Project />
+          <Certificate />
           <Contact />
           <Footer />
         </main>

@@ -2,7 +2,7 @@ import { motion } from 'motion/react'
 import ScrollReveal from './ScrollReveal'
 
 const techStack = [
-  'PHP', 'Laravel', 'React', 'TypeScript', 'MySQL', 'Tailwind CSS',
+  'PHP', 'Laravel', 'JavaScript', 'React', 'TypeScript', 'MySQL', 'Tailwind CSS',
 ]
 
 const projects = [
@@ -102,7 +102,7 @@ export default function About() {
           {techStack.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded-full text-xs text-zinc-400 hover:bg-cyan-500/10 hover:text-cyan-300 hover:border-cyan-400/30 transition-all duration-300"
+              className="px-3 py-1.5 bg-white/4 border border-white/8 rounded-full text-xs text-zinc-400 hover:bg-cyan-500/10 hover:text-cyan-300 hover:border-cyan-400/30 transition-all duration-300"
             >
               {tech}
             </span>

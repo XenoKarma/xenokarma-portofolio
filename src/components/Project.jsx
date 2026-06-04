@@ -1,50 +1,56 @@
 import { motion } from 'motion/react'
+import dummy1 from '../assets/project/dummy1.png'
+import dummy2 from '../assets/project/dummy2.png'
+import dummy3 from '../assets/project/dummy3.png'
+import fullstack1 from '../assets/project/fullstack1.png'
+import fullstack2 from '../assets/project/fullstack2.png'
+import fullstack3 from '../assets/project/fullstack3.png'
 
 const projects = {
   frontend: [
     {
-      title: 'Project A',
-      desc: 'A modern web application built with React and TypeScript for seamless user experience.',
-      tech: ['React', 'TypeScript', 'Tailwind CSS'],
-      link: 'https://example.com',
-      image: null,
+      title: 'Midnight Waves - My Musik App',
+      desc: 'A Spotify-inspired music streaming platform featuring playlist management, album discovery, responsive layouts, and smooth interactive animations.',
+      tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn UI', 'Framer Motion'],
+      link: 'https://midnight-waves-my-musik-app.vercel.app/',
+      image: dummy1,
     },
     {
-      title: 'Project B',
-      desc: 'Interactive dashboard with real-time data visualization and responsive design.',
-      tech: ['React', 'Shadcn UI', 'Chart.js'],
-      link: 'https://example.com',
-      image: null,
+      title: 'Crypto Dashboard - Learn API',
+      desc: 'A modern cryptocurrency dashboard featuring real-time market tracking, trending assets, and dynamic data visualization powered by external APIs.',
+      tech: ['ReactJS', 'Vite', 'Shadcn UI', 'Chart.js', 'Tailwind CSS', 'REST API'],
+      link: 'https://crypto-dashboard-v1-pxsh.vercel.app/',
+      image: dummy2,
     },
     {
-      title: 'Project C',
-      desc: 'Landing page with smooth animations and optimized performance.',
-      tech: ['React', 'Framer Motion', 'Tailwind CSS'],
-      link: 'https://example.com',
-      image: null,
+      title: 'Landing Page - Le Mans 24H',
+      desc: 'A modern product landing page crafted with responsive design, interactive elements, and clean visual storytelling to deliver an engaging user experience.',
+      tech: ['Next.js', 'TypeScript', 'Framer Motion', 'Tailwind CSS', 'Shadcn UI'],
+      link: 'https://lemans-landingpage.vercel.app/',
+      image: dummy3,
     },
   ],
   fullstack: [
     {
-      title: 'Project D',
-      desc: 'Full-stack application with authentication, CRUD operations, and database integration.',
-      tech: ['Laravel', 'React', 'MySQL'],
+      title: 'Sistem Pakar Diagnosa Printer',
+      desc: 'Project Learning: A printer diagnostic expert system that helps users identify hardware and software issues through structured consultations and automated solution recommendations.',
+      tech: ['Laravel', 'Blade', 'MySQL', 'Bootstrap'],
       link: null,
-      image: null,
+      image: fullstack1,
     },
     {
-      title: 'Project E',
-      desc: 'E-commerce platform with payment gateway, admin panel, and inventory management.',
-      tech: ['Laravel', 'PHP', 'Tailwind CSS'],
+      title: 'CashFlow - Personal Finance Management System',
+      desc: 'Project Learning: Building this project helped me understand more about API design, authentication, and structuring a fullstack application.',
+      tech: ['Laravel', 'ReactJS + Vite', 'MySQL' , 'Tailwind CSS', 'Shadcn UI', 'Chart.js'],
       link: null,
-      image: null,
+      image: fullstack2,
     },
     {
-      title: 'Project F',
-      desc: 'Real-time collaborative tool with WebSocket support and RESTful API.',
-      tech: ['Laravel', 'TypeScript', 'MySQL'],
+      title: 'TickTrack',
+      desc: 'Project Learning: A full-stack help desk application featuring ticket creation, status tracking, user authentication, and API-driven communication between frontend and backend services.',
+      tech: ['Laravel', 'Vue.js', 'MySQL', 'Chart.js', 'Tailwind CSS'],
       link: null,
-      image: null,
+      image: fullstack3,
     },
   ],
 }
@@ -69,7 +75,7 @@ function ProjectCard({ project, index, isFrontend }) {
         {/* Image */}
         <div className="aspect-video bg-linear-to-br from-violet-500/10 via-fuchsia-500/10 to-cyan-500/10 flex items-center justify-center overflow-hidden">
           {project.image ? (
-            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+            <img src={project.image} alt={project.title} className="w-full h-full object-containt" />
           ) : (
             <div className="text-center">
               <svg className="w-10 h-10 text-zinc-600 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">

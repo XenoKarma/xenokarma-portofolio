@@ -107,7 +107,7 @@ export default function Hero() {
               "
             >
               <img
-                src="/profile/andika.jpg"
+                src="/profile/profile.jpg"
                 alt="Andika Purnama"
                 className="w-full h-full object-cover"
               />
@@ -142,7 +142,7 @@ export default function Hero() {
                 <span className="absolute inline-flex w-full h-full rounded-full bg-cyan-400 opacity-75 animate-ping" />
                 <span className="relative inline-flex w-2 h-2 rounded-full bg-cyan-400" />
               </span>
-              XENOKARMA
+              XENOKARMA -<a href="https://github.com/XenoKarma" target="_blank" rel="noopener noreferrer" className="text-fuchsia-600 hover:text-gray-100">GITHUB</a>
             </span>
           </div>
 
@@ -162,6 +162,7 @@ export default function Hero() {
           >
             <TextType
               text={[
+                'Vibe Engineer',
                 'Junior Web Developer',
                 'Frontend Developer',
                 'Backend Developer',
@@ -182,21 +183,22 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4, duration: 0.8 }}
             className="
-              mt-4
+              mt-2
               text-sm
               sm:text-base
+              max-w-xl
               text-zinc-400
-              max-w-md
               leading-relaxed
               mx-auto md:mx-0
             "
           >
-            Building digital experiences with modern technologies,
-            clean code, and creative design.
+            Building scalable web applications with React, Node.js,
+            Laravel, and modern technologies to create fast,
+            responsive, and user-friendly digital experiences.
           </motion.p>
 
           {/* Social Icons */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.5, duration: 0.8 }}
@@ -228,7 +230,7 @@ export default function Hero() {
                 </svg>
               </a>
             ))}
-          </motion.div>
+          </motion.div> */}
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

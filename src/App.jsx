@@ -33,7 +33,7 @@ function LoadingScreen({ onComplete }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] bg-[#030712] flex flex-col items-center justify-center"
+      className="fixed inset-0 z-100 bg-[#030712] flex flex-col items-center justify-center"
       initial={{ opacity: 1 }}
       animate={exiting ? { opacity: 0, scale: 1.08, filter: 'blur(10px)' } : { opacity: 1 }}
       transition={{ duration: 0.7, ease: 'easeInOut' }}
@@ -43,9 +43,9 @@ function LoadingScreen({ onComplete }) {
         <span className="text-5xl md:text-6xl text-violet-500 ml-1">%</span>
       </div>
 
-      <div className="mt-8 w-40 h-[2px] bg-white/[0.06] rounded-full overflow-hidden">
+      <div className="mt-8 w-40 h-0.5px bg-white/6 rounded-full overflow-hidden">
         <motion.div
-          className="h-full bg-gradient-to-r from-violet-500 via-fuchsia-500 to-violet-500 rounded-full"
+          className="h-full bg-linear-to-r from-violet-500 via-fuchsia-500 to-violet-500 rounded-full"
           style={{ scaleX: progress, transformOrigin: 'left' }}
         />
       </div>

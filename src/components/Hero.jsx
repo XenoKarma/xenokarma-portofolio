@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 import BlurText from './BlurText'
 import TextType from './TextType'
+import cv from '../assets/cv/ANDIKA-PURNAMA(CV).pdf'
 
 const floatingOrbs = [
   { size: 300, color: 'rgba(99,102,241,0.12)', x: '10%', y: '20%', delay: 0, duration: 8 },
@@ -303,6 +304,32 @@ export default function Hero() {
               "
             >
               Contact Me
+            </a>
+
+            <a
+              href={cv}
+              download="ANDIKA-PURNAMA(CV).pdf"
+              className="
+                group relative
+                px-7 py-3
+                border border-violet-500/30
+                text-violet-300
+                rounded-full
+                text-sm
+                font-medium
+                transition-all
+                duration-300
+                hover:scale-105
+                active:scale-95
+                hover:bg-violet-500/10
+                hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]
+                inline-flex items-center gap-2
+              "
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+              Download CV
             </a>
           </motion.div>
         </div>

@@ -5,6 +5,8 @@ import dummy3 from '../assets/project/dummy3.png'
 import fullstack1 from '../assets/project/fullstack1.png'
 import fullstack2 from '../assets/project/fullstack2.png'
 import fullstack3 from '../assets/project/fullstack3.png'
+import comingSoon from '../assets/project/coming-soon.png'
+
 
 const projects = {
   frontend: [
@@ -53,6 +55,30 @@ const projects = {
       image: fullstack3,
     },
   ],
+  comingsoon: [
+    {
+      title: 'IT Asset Management System',
+      desc: 'Learn Project: A web-based asset management system designed to help educational institutions track, monitor, and manage IT equipment such as computers, laptops, printers, and networking devices. Features include asset registration, maintenance tracking, inventory monitoring, and reporting dashboards.',
+      tech: ['Laravel', 'Reactjs', 'MySQL', 'Tailwind CSS', 'Shadcn UI', 'REST API'],
+      link: null,
+      image: comingSoon,
+    },
+    {
+      title: 'Alumni Information Management System',
+      desc: 'my tesis: re build, A web-based alumni management platform that enables institutions to collect, manage, and analyze alumni data efficiently. The system includes profile management, graduate tracking, questionnaire forms, and administrative reporting features.',
+      tech: ['Laravel', 'Blade', 'MySQL', 'BootStrap', 'Sweetalert2'],
+      link: null,
+      image: comingSoon,
+    },
+    {
+      title: 'StockFlow - POS & Inventory Management',
+      desc: 'Learn Project: A modern inventory management and point-of-sale (POS) platform built for retail stores and small businesses. Features include product management, stock tracking, sales transactions, purchase orders, customer management, and real-time business reporting.',
+      tech: ['Laravel', 'Reactjs', 'MySQL', 'Tailwind CSS', 'Shadcn UI', 'REST API'],
+      link: null,
+      image: comingSoon,
+    },
+
+  ]
 }
 
 function ProjectCard({ project, index, isFrontend }) {
@@ -153,6 +179,20 @@ export default function Project() {
           </div>
           <div className="grid md:grid-cols-3 gap-4 md:gap-6">
             {projects.fullstack.map((project, i) => (
+              <ProjectCard key={project.title} project={project} index={i} isFrontend={false} />
+            ))}
+          </div>
+        </div>
+
+        {/* Coming Soon */}
+        <div>
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-2 h-2 rounded-full bg-violet-400" />
+            <h3 className="text-sm font-semibold text-zinc-300 tracking-wider uppercase">Coming Soon</h3>
+            <div className="h-px flex-1 bg-linear-to-r from-white/8 to-transparent" />
+          </div>
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+            {projects.comingsoon.map((project, i) => (
               <ProjectCard key={project.title} project={project} index={i} isFrontend={false} />
             ))}
           </div>

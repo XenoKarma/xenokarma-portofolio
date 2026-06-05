@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const links = [
   { label: 'Home', href: '#home' },
@@ -13,6 +13,7 @@ const links = [
 export default function Navbar() {
   const [active, setActive] = useState('')
   const [open, setOpen] = useState(false)
+  const menuRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => {
@@ -28,6 +29,17 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    if (!open) return
+    const onKeyDown = (e) => { if (e.key === 'Escape') setOpen(false) }
+    document.addEventListener('keydown', onKeyDown)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = ''
+    }
+  }, [open])
 
   const handleClick = (e, href) => {
     e.preventDefault()
@@ -83,20 +95,20 @@ export default function Navbar() {
 
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden relative z-10 w-8 h-8 flex flex-col items-center justify-center gap-1"
-            aria-label="Menu"
+            className="md:hidden relative z-10 w-9 h-9 flex flex-col items-center justify-center gap-1 rounded-lg active:bg-white/5 transition-colors"
+            aria-label={open ? 'Close menu' : 'Open menu'}
           >
             <motion.span
-              animate={open ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
-              className="w-4 h-px bg-zinc-400"
+              animate={open ? { rotate: 45, y: 4.5 } : { rotate: 0, y: 0 }}
+              className="w-5 h-px bg-zinc-300"
             />
             <motion.span
               animate={open ? { opacity: 0 } : { opacity: 1 }}
-              className="w-4 h-px bg-zinc-400"
+              className="w-5 h-px bg-zinc-300"
             />
             <motion.span
-              animate={open ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
-              className="w-4 h-px bg-zinc-400"
+              animate={open ? { rotate: -45, y: -4.5 } : { rotate: 0, y: 0 }}
+              className="w-5 h-px bg-zinc-300"
             />
           </button>
         </div>
@@ -104,31 +116,42 @@ export default function Navbar() {
 
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden mt-2 bg-white/4 backdrop-blur-xl border border-white/8 rounded-2xl p-3"
-          >
-            {links.map(l => {
-              const isActive = active === l.href.slice(1)
-              return (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  onClick={(e) => handleClick(e, l.href)}
-                  className={`block px-4 py-2.5 text-sm rounded-xl transition-all duration-300 ${
-                    isActive
-                      ? 'text-white bg-white/6'
-                      : 'text-zinc-500 hover:text-violet-300 hover:bg-white/3'
-                  }`}
-                >
-                  {l.label}
-                </a>
-              )
-            })}
-          </motion.div>
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm md:hidden"
+              onClick={() => setOpen(false)}
+            />
+            <motion.div
+              ref={menuRef}
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+              className="relative md:hidden mt-3 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl p-2 shadow-2xl shadow-black/40"
+            >
+              {links.map(l => {
+                const isActive = active === l.href.slice(1)
+                return (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    onClick={(e) => handleClick(e, l.href)}
+                    className={`flex items-center gap-3 px-4 py-3 text-sm rounded-xl transition-all duration-200 ${
+                      isActive
+                        ? 'text-white bg-violet-500/10 border border-violet-500/20'
+                        : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/5 border border-transparent'
+                    }`}
+                  >
+                    <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-violet-400' : 'bg-zinc-600'}`} />
+                    {l.label}
+                  </a>
+                )
+              })}
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>

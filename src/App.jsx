@@ -3,7 +3,6 @@ import { motion, AnimatePresence, animate, useMotionValue, useTransform } from '
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
-import TechStack from './components/TechStack'
 import Experience from './components/Experience'
 import Project from './components/Project'
 import Certificate from './components/Certificate'
@@ -85,7 +84,6 @@ function App() {
           <Navbar />
           <Hero />
           <About />
-          <TechStack />
           <Experience />
           <Project />
           <Certificate />

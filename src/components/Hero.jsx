@@ -1,7 +1,7 @@
 import { motion } from 'motion/react'
 import BlurText from './BlurText'
 import TextType from './TextType'
-import cv from '../assets/cv/ANDIKA-PURNAMA(CV).pdf'
+import cv from '../assets/cv/AndikaPurnama_CV_Academy.pdf'
 
 const floatingOrbs = [
   { size: 300, color: 'rgba(99,102,241,0.12)', x: '10%', y: '20%', delay: 0, duration: 8 },
@@ -308,7 +308,7 @@ export default function Hero() {
 
             <a
               href={cv}
-              download="ANDIKA-PURNAMA(CV).pdf"
+              download="AndikaPurnama_CV_Academy.pdf"
               className="
                 group relative
                 px-7 py-3

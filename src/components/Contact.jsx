@@ -31,7 +31,7 @@ const contacts = [
   {
     label: 'LinkedIn',
     value: 'Andika Purnama',
-    href: 'www.linkedin.com/in/andika-purnama-94315b34b',
+    href: 'https://www.linkedin.com/in/andika-purnama-94315b34b',
     icon: 'M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z',
     color: 'from-blue-500/20 to-blue-600/10',
     border: 'border-blue-500/20 group-hover:border-blue-400/40',
@@ -74,7 +74,7 @@ export default function Contact() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href="mailto:witnestysarumaha@gmail.com"
+                href="mailto:andikapurnama1803@gmail.com"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-violet-500/10 border border-violet-500/25 rounded-xl text-sm font-medium text-violet-300 hover:bg-violet-500/20 hover:text-violet-200 transition-all duration-300"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">

@@ -101,7 +101,7 @@ function ProjectCard({ project, index, isFrontend }) {
         {/* Image */}
         <div className="aspect-video bg-linear-to-br from-violet-500/10 via-fuchsia-500/10 to-cyan-500/10 flex items-center justify-center overflow-hidden">
           {project.image ? (
-            <img src={project.image} alt={project.title} className="w-full h-full object-containt" />
+            <img src={project.image} alt={project.title} className="w-full h-full object-contain" />
           ) : (
             <div className="text-center">
               <svg className="w-10 h-10 text-zinc-600 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">

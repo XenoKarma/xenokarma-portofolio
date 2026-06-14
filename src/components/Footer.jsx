@@ -15,7 +15,7 @@ const footerLinks = [
     title: 'Social',
     links: [
       { label: 'Instagram', href: 'https://www.instagram.com/andika_purnama1803' },
-      { label: 'LinkedIn', href: 'www.linkedin.com/in/andika-purnama-94315b34b' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andika-purnama-94315b34b' },
       { label: 'Email', href: 'mailto:andikapurnama1803@gmail.com' },
       { label: 'WhatsApp', href: 'https://wa.me/628979732548' },
     ],

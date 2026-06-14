@@ -4,9 +4,10 @@ import { useState, useEffect, useRef } from 'react'
 const links = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-
   { label: 'Experience', href: '#experience' },
   { label: 'Project', href: '#project' },
+  { label: 'Certificate', href: '#certificate' },
+  { label: 'GitHub', href: '#github' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -57,7 +58,7 @@ export default function Navbar() {
         <div className="absolute -inset-1 bg-linear-to-r from-violet-500/20 via-fuchsia-500/10 to-violet-500/20 rounded-full blur-lg opacity-60" />
 
         <div className="relative flex items-center justify-between bg-white/4 backdrop-blur-xl border border-white/8 rounded-full px-5 md:px-8 h-14 transition-colors">
-          <a href="#home" onClick={(e) => handleClick(e, '#home')} className="text-base font-semibold text-white tracking-tight">
+          <a href="#home" onClick={(e) => handleClick(e, '#home')} className="text-base font-semibold text-white tracking-tight mr-6">
             XENO<span className="text-cyan-400">KARMA</span>
           </a>
 

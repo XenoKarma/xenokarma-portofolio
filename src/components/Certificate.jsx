@@ -1,4 +1,5 @@
-import { motion } from 'motion/react'
+import { motion, AnimatePresence } from 'motion/react'
+import { useState, useEffect } from 'react'
 import javascriptCert from '../assets/sertifikat/javascript.png'
 import certiportCert from '../assets/sertifikat/IC3.png'
 import dicoding from '../assets/sertifikat/dicoding.png'
@@ -51,7 +52,7 @@ const certificates = [
   },
 ]
 
-function CertificateCard({ cert, index }) {
+function CertificateCard({ cert, index, onSelect }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -62,11 +63,13 @@ function CertificateCard({ cert, index }) {
       <div className="group bg-white/4 border border-white/8 rounded-2xl overflow-hidden hover:border-violet-500/30 transition-all duration-300">
         <div className="relative aspect-3/2 overflow-hidden bg-linear-to-br from-violet-500/10 via-fuchsia-500/10 to-cyan-500/10">
           {cert.image ? (
-            <img
-              src={cert.image}
-              alt={cert.title}
-              className="w-full h-full object-contain p-3 md:p-4 group-hover:scale-105 transition-transform duration-500"
-            />
+            <button onClick={() => onSelect(cert)} className="w-full h-full cursor-pointer">
+              <img
+                src={cert.image}
+                alt={cert.title}
+                className="w-full h-full object-contain p-3 md:p-4 group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
           ) : (
             <div className="w-full h-full flex items-center justify-center">
               <svg className="w-12 h-12 text-violet-400/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">
@@ -107,6 +110,19 @@ function CertificateCard({ cert, index }) {
 }
 
 export default function Certificate() {
+  const [selectedCert, setSelectedCert] = useState(null)
+
+  useEffect(() => {
+    if (!selectedCert) return
+    const onKeyDown = (e) => { if (e.key === 'Escape') setSelectedCert(null) }
+    document.addEventListener('keydown', onKeyDown)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = ''
+    }
+  }, [selectedCert])
+
   return (
     <section id="certificate" className="relative py-20 md:py-32 px-4 bg-[#030712]/60">
       <div className="max-w-6xl mx-auto">
@@ -126,10 +142,54 @@ export default function Certificate() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {certificates.map((cert, i) => (
-            <CertificateCard key={cert.title} cert={cert} index={i} />
+            <CertificateCard key={cert.title} cert={cert} index={i} onSelect={setSelectedCert} />
           ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {selectedCert && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-100 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+            onClick={() => setSelectedCert(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="relative max-w-4xl w-full max-h-[90vh] bg-[#030712] border border-white/10 rounded-2xl overflow-hidden shadow-2xl shadow-violet-500/10 flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between px-5 py-3 border-b border-white/8 shrink-0">
+                <div>
+                  <h3 className="text-sm font-semibold text-white">{selectedCert.title}</h3>
+                  <p className="text-xs text-zinc-500">{selectedCert.issuer}</p>
+                </div>
+                <button
+                  onClick={() => setSelectedCert(null)}
+                  className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 border border-white/8 text-zinc-400 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <div className="flex-1 overflow-auto p-4 md:p-6 flex items-center justify-center">
+                <img
+                  src={selectedCert.image}
+                  alt={selectedCert.title}
+                  className="max-w-full max-h-[75vh] object-contain rounded-lg"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

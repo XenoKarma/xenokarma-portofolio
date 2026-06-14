@@ -162,7 +162,7 @@ function Carousel({ items }) {
         <div className="h-px flex-1 bg-linear-to-r from-white/8 to-transparent" />
       </div>
 
-      <div className="relative overflow-hidden rounded-xl bg-white/4 border border-white/8 min-h-[160px]">
+      <div className="relative overflow-hidden rounded-xl bg-white/4 border border-white/8 min-h-40">
         <AnimatePresence mode="popLayout" custom={direction}>
           <motion.div
             key={index}

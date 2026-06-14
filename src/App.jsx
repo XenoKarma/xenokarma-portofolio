@@ -10,6 +10,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import LiquidEther from './components/LiquidEther'
 import GithubActivity from './components/GithubActivity'
+import './App.css'
 
 function LoadingScreen({ onComplete }) {
   const count = useMotionValue(0)
@@ -17,6 +18,10 @@ function LoadingScreen({ onComplete }) {
   const progress = useTransform(count, [0, 100], [0, 1])
   const [exiting, setExiting] = useState(false)
   const doneRef = useRef(false)
+  const onCompleteRef = useRef(onComplete)
+  useEffect(() => {
+    onCompleteRef.current = onComplete
+  })
 
   useEffect(() => {
     const controls = animate(count, 100, {
@@ -26,11 +31,11 @@ function LoadingScreen({ onComplete }) {
         if (doneRef.current) return
         doneRef.current = true
         setExiting(true)
-        setTimeout(onComplete, 700)
+        setTimeout(() => onCompleteRef.current(), 700)
       },
     })
     return () => controls.stop()
-  }, [])
+  }, [count])
 
   return (
     <motion.div

@@ -1,6 +1,6 @@
 @layer base {
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(255,255,255,0.05) transparent;
+    scrollbar-color: rgba(26, 26, 26, 0.2) transparent;
   }
 }

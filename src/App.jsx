@@ -8,8 +8,7 @@ import Project from './components/Project'
 import Certificate from './components/Certificate'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import LiquidEther from './components/LiquidEther'
-import GithubActivity from './components/GithubActivity'
+import TechStack from './components/TechStack'
 import './App.css'
 
 function LoadingScreen({ onComplete }) {
@@ -25,13 +24,13 @@ function LoadingScreen({ onComplete }) {
 
   useEffect(() => {
     const controls = animate(count, 100, {
-      duration: 2.8,
+      duration: 2.2,
       ease: [0.25, 0.1, 0.25, 1],
       onComplete: () => {
         if (doneRef.current) return
         doneRef.current = true
         setExiting(true)
-        setTimeout(() => onCompleteRef.current(), 700)
+        setTimeout(() => onCompleteRef.current(), 500)
       },
     })
     return () => controls.stop()
@@ -39,24 +38,24 @@ function LoadingScreen({ onComplete }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-100 bg-[#030712] flex flex-col items-center justify-center"
+      className="fixed inset-0 z-100 bg-cream flex flex-col items-center justify-center"
       initial={{ opacity: 1 }}
-      animate={exiting ? { opacity: 0, scale: 1.08, filter: 'blur(10px)' } : { opacity: 1 }}
-      transition={{ duration: 0.7, ease: 'easeInOut' }}
+      animate={exiting ? { opacity: 0, y: -20 } : { opacity: 1 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
     >
-      <div className="text-8xl md:text-9xl font-bold text-white tracking-tighter tabular-nums flex items-baseline">
+      <div className="text-8xl md:text-9xl font-bold text-ink tracking-tighter tabular-nums flex items-baseline">
         <motion.span>{rounded}</motion.span>
-        <span className="text-5xl md:text-6xl text-violet-500 ml-1">%</span>
+        <span className="text-4xl md:text-5xl text-accent-blue ml-1">%</span>
       </div>
 
-      <div className="mt-8 w-40 h-0.5px bg-white/6 rounded-full overflow-hidden">
+      <div className="mt-8 w-40 h-[2px] bg-ink/10 overflow-hidden">
         <motion.div
-          className="h-full bg-linear-to-r from-violet-500 via-fuchsia-500 to-violet-500 rounded-full"
+          className="h-full bg-ink"
           style={{ scaleX: progress, transformOrigin: 'left' }}
         />
       </div>
 
-      <p className="mt-6 text-xs text-zinc-600 tracking-[0.2em] uppercase">Preparing Experience</p>
+      <p className="mt-6 text-xs text-ink-light tracking-[0.2em] uppercase">Loading</p>
     </motion.div>
   )
 }
@@ -73,26 +72,16 @@ function App() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={loading ? { opacity: 0 } : { opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.15 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
       >
-        <div className="fixed inset-0 z-0 bg-[#030712]">
-          <LiquidEther
-            colors={['#6366f1', '#a855f7', '#ec4899']}
-            resolution={0.4}
-            mouseForce={15}
-            cursorSize={80}
-            autoSpeed={0.4}
-            autoIntensity={1.8}
-          />
-        </div>
-        <main className="relative z-10">
+        <main className="relative bg-cream bg-grid-pattern min-h-screen">
           <Navbar />
           <Hero />
           <About />
+          <TechStack />
           <Experience />
           <Project />
           <Certificate />
-          <GithubActivity />
           <Contact />
           <Footer />
         </main>
